@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
 import AlbumCard from "./AlbumCard";
-import useAlbums from "../hooks/useAlbums"; // pas het pad aan als nodig
+import useAlbums from "../hooks/useAlbums";
 
 const AlbumOverview = () => {
     const { albums, isLoading, error } = useAlbums();

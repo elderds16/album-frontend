@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const endpoint = `${process.env.REACT_APP_API_URL}/album`;
 
