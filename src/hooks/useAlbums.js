@@ -12,14 +12,14 @@ const useAlbums = () => {
             try {
                 const response = await fetch(endpoint);
 
-                const text = await response.text(); // Lees response eerst als TEXT
-                console.log("✅ Raw API response:", text); // 👈 Dit toont je wat er werkelijk wordt teruggestuurd
+                const text = await response.text(); 
+                console.log("✅ Raw API response:", text); 
 
                 if (!response.ok) {
                     throw new Error(`HTTP error ${response.status}`);
                 }
 
-                const data = JSON.parse(text); // 👈 pas daarna parse
+                const data = JSON.parse(text); 
                 data.sort((a, b) => {
                     if (a.artist.toLowerCase() < b.artist.toLowerCase()) return -1;
                     if (a.artist.toLowerCase() > b.artist.toLowerCase()) return 1;
@@ -30,7 +30,7 @@ const useAlbums = () => {
 
                 setAlbums(data);
             } catch (error) {
-                console.error("⛔ Fout bij ophalen albums:", error); // 👈 Extra logging
+                console.error("⛔ Fout bij ophalen albums:", error); 
                 setError(error.message);
             } finally {
                 setIsLoading(false);
