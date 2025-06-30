@@ -38,8 +38,8 @@ const AlbumDetail = () => {
             <Card style={{ marginBottom: '20px' }}>
                 <CardActionArea component={Link} to="/">
                     <CardContent>
-                        <Typography variant="h5" component="div">
-                            Back to Album Overview
+                        <Typography variant="h5" component="div" style={{ display: 'flex', alignItems: 'center' }}>
+                            <span style={{ marginRight: '8px' }}>?</span> Back to Album Overview
                         </Typography>
                     </CardContent>
                 </CardActionArea>
