@@ -45,6 +45,20 @@ const AlbumDetail = () => {
                 </CardActionArea>
             </Card>
 
+            {/* Album image onder de link */}
+            {album && (
+                <img
+                    src={album.imageUrl}
+                    alt={`${album.name} cover`}
+                    style={{
+                        maxWidth: '250px',
+                        borderRadius: '8px',
+                        marginBottom: '20px',
+                        display: 'block'
+                    }}
+                />
+            )}
+
             {deleteError && <p style={{ color: 'red' }}>Can't remove: {deleteError}</p>}
             {updateError && <p style={{ color: 'red' }}>Can't update: {updateError}</p>}
 

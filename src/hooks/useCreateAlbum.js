@@ -9,7 +9,7 @@ const useCreateAlbum = () => {
     setError(null);
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_BASE}/album`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/album`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newAlbum),
