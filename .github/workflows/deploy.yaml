@@ -30,42 +30,42 @@ jobs:
           echo "Secrets list:"
           echo "${{ toJson(secrets) }}"
 
-      - name: Debug environment info
-        run: |
-          echo "Node version:"
-          node -v
+      # - name: Debug environment info
+      #   run: |
+      #     echo "Node version:"
+      #     node -v
 
-          echo "NPM version:"
-          npm -v
+      #     echo "NPM version:"
+      #     npm -v
 
-          echo "AWS CLI version:"
-          aws --version
+      #     echo "AWS CLI version:"
+      #     aws --version
 
-          echo "Checking environment variables:"
-          env | grep AWS || echo "No AWS env vars set"
+      #     echo "Checking environment variables:"
+      #     env | grep AWS || echo "No AWS env vars set"
 
-          echo "Checking if AWS_ACCESS_KEY_ID is set:"
-          if [ -z "$AWS_ACCESS_KEY_ID" ]; then
-            echo "AWS_ACCESS_KEY_ID is NOT set"
-            exit 1
-          else
-            echo "AWS_ACCESS_KEY_ID is set"
-          fi
+      #     echo "Checking if AWS_ACCESS_KEY_ID is set:"
+      #     if [ -z "$AWS_ACCESS_KEY_ID" ]; then
+      #       echo "AWS_ACCESS_KEY_ID is NOT set"
+      #       exit 1
+      #     else
+      #       echo "AWS_ACCESS_KEY_ID is set"
+      #     fi
           
-          echo "Checking if AWS_SECRET_ACCESS_KEY is set:"
-          if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
-            echo "AWS_SECRET_ACCESS_KEY is NOT set"
-            exit 1
-          else
-            echo "AWS_SECRET_ACCESS_KEY is set"
-          fi
+      #     echo "Checking if AWS_SECRET_ACCESS_KEY is set:"
+      #     if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
+      #       echo "AWS_SECRET_ACCESS_KEY is NOT set"
+      #       exit 1
+      #     else
+      #       echo "AWS_SECRET_ACCESS_KEY is set"
+      #     fi
 
-          echo "Checking if AWS_SESSION_TOKEN is set:"
-          if [ -z "$AWS_SESSION_TOKEN" ]; then
-            echo "AWS_SESSION_TOKEN is NOT set (this is OK if you don't use temporary credentials)"
-          else
-            echo "AWS_SESSION_TOKEN is set"
-          fi
+      #     echo "Checking if AWS_SESSION_TOKEN is set:"
+      #     if [ -z "$AWS_SESSION_TOKEN" ]; then
+      #       echo "AWS_SESSION_TOKEN is NOT set (this is OK if you don't use temporary credentials)"
+      #     else
+      #       echo "AWS_SESSION_TOKEN is set"
+      #     fi
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
