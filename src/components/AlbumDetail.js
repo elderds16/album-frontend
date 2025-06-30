@@ -45,7 +45,6 @@ const AlbumDetail = () => {
                 </CardActionArea>
             </Card>
 
-            {/* Album image onder de link */}
             {album && (
                 <img
                     src={album.imageUrl}
@@ -54,7 +53,9 @@ const AlbumDetail = () => {
                         maxWidth: '250px',
                         borderRadius: '8px',
                         marginBottom: '20px',
-                        display: 'block'
+                        display: 'block',
+                        marginLeft: 'auto',
+                        marginRight: 'auto'
                     }}
                 />
             )}

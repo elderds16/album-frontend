@@ -13,7 +13,7 @@ const useAlbums = () => {
                 const response = await fetch(endpoint);
 
                 const text = await response.text(); 
-                console.log("✅ Raw API response:", text); 
+                console.log("Raw API response:", text); 
 
                 if (!response.ok) {
                     throw new Error(`HTTP error ${response.status}`);
@@ -30,7 +30,7 @@ const useAlbums = () => {
 
                 setAlbums(data);
             } catch (error) {
-                console.error("⛔ Fout bij ophalen albums:", error); 
+                console.error("Fout bij ophalen albums:", error); 
                 setError(error.message);
             } finally {
                 setIsLoading(false);
