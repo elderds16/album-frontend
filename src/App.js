@@ -5,7 +5,6 @@ import AlbumOverview from "./components/AlbumOverview";
 import AlbumDetail from "./components/AlbumDetail";  // importeer AlbumDetail
 import CreateAlbum from "./components/CreateAlbum";
 
-
 function App() {
     return (
         <BrowserRouter>
@@ -22,7 +21,7 @@ function App() {
             <Container style={{ marginTop: "2rem" }}>
                 <Routes>
                     <Route path="/" element={<AlbumOverview />} />
-                    <Route path="/album/:albumId" element={<AlbumDetail />} /> 
+                    <Route path="/album/:albumId" element={<AlbumDetail />} />  {/* nieuwe route */}
                     <Route path="/new" element={<CreateAlbum />} />
                 </Routes>
             </Container>

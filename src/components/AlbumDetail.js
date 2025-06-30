@@ -7,7 +7,7 @@ import useUpdateAlbum from '../hooks/useUpdateAlbum';
 import AlbumForm from './AlbumForm';
 
 const AlbumDetail = () => {
-    const { id } = useParams();
+    const { albumId } = useParams();
     const navigate = useNavigate();
 
     const { album, isLoading: loading, error } = useAlbum(id);
