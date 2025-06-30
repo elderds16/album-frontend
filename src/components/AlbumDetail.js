@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { Card, CardActionArea, CardContent, Typography } from '@material-ui/core';
+import { Card, CardContent, Typography, Button } from '@material-ui/core';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import useAlbum from '../hooks/useAlbum';
 import useDeleteAlbum from '../hooks/useDeleteAlbum';
 import useUpdateAlbum from '../hooks/useUpdateAlbum';
@@ -35,15 +36,21 @@ const AlbumDetail = () => {
 
     return (
         <div>
-            <Card style={{ marginBottom: '20px' }}>
-                <CardActionArea component={Link} to="/">
-                    <CardContent>
-                        <Typography variant="h5" component="div" style={{ display: 'flex', alignItems: 'center' }}>
-                            <span style={{ marginRight: '8px' }}>?</span> Back to Album Overview
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
+            <Button
+                component={Link}
+                to="/"
+                variant="outlined"
+                color="primary"
+                startIcon={<ArrowBackIcon />}
+                style={{ marginBottom: '1.5rem', textTransform: 'none' }}
+            >
+                Back to overview
+            </Button>
+
+            {/* Titel */}
+            <Typography variant="h4" component="h1" gutterBottom>
+                Album Overview
+            </Typography>
 
             {album && (
                 <img
