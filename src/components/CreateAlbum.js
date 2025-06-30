@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import AlbumForm from './AlbumForm';
 import useCreateAlbum from '../hooks/useCreateAlbum';
 import useAlbums from '../hooks/useAlbums';
-import { Button, Typography, Box, Paper } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const CreateAlbum = () => {
@@ -21,7 +21,7 @@ const CreateAlbum = () => {
         );
 
         if (duplicate) {
-            setDuplicateError('This album already exists.');
+            setDuplicateError('Dit album bestaat al.');
             return;
         }
 
@@ -36,41 +36,29 @@ const CreateAlbum = () => {
     };
 
     return (
-        <Box maxWidth={600} mx="auto" mt={4} p={2}>
+        <div>
             <Button
                 component={Link}
                 to="/"
                 variant="outlined"
+                color="primary"
                 startIcon={<ArrowBackIcon />}
-                style={{ marginBottom: 24 }}
+                style={{ marginBottom: '1.5rem', textTransform: 'none' }}
             >
                 Back to overview
             </Button>
 
-            <Paper elevation={3} style={{ padding: '24px' }}>
-                <Typography variant="h5" gutterBottom>
-                    Create New Album
-                </Typography>
+            <h2>Create New Album</h2>
 
-                {duplicateError && (
-                    <Typography color="error" gutterBottom>
-                        {duplicateError}
-                    </Typography>
-                )}
+            {duplicateError && <p style={{ color: 'red' }}>{duplicateError}</p>}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
 
-                {error && (
-                    <Typography color="error" gutterBottom>
-                        {error}
-                    </Typography>
-                )}
-
-                {(isSubmitting || isLoading) ? (
-                    <Typography>Saving...</Typography>
-                ) : (
-                    <AlbumForm onSubmit={handleSubmit} showSaveButton={true} />
-                )}
-            </Paper>
-        </Box>
+            {(isSubmitting || isLoading) ? (
+                <p>Saving...</p>
+            ) : (
+                <AlbumForm onSubmit={handleSubmit} showSaveButton={true} />
+            )}
+        </div>
     );
 };
 
