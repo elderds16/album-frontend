@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { Card, CardContent, TextField, Button } from '@mui/material';
+import { Card, CardContent, TextField, Button } from '@material-ui/core';
 
 const AlbumForm = ({ album, onSubmit, showSaveButton, showUpdateButton, onRemove }) => {
     const {
