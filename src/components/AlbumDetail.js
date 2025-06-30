@@ -10,19 +10,19 @@ const AlbumDetail = () => {
     const { albumId } = useParams();
     const navigate = useNavigate();
 
-    const { album, isLoading: loading, error } = useAlbum(id);
+    const { album, isLoading: loading, error } = useAlbum(albumId);
     const { deleteAlbum, isLoading: isDeleting, error: deleteError } = useDeleteAlbum();
     const { updateAlbum, isLoading: isUpdating, error: updateError } = useUpdateAlbum();
 
     const handleUpdate = async (updatedAlbum) => {
-        const success = await updateAlbum(id, updatedAlbum);
+        const success = await updateAlbum(albumId, updatedAlbum);
         if (success) {
             navigate('/');
         }
     };
 
     const removeAlbum = async () => {
-        const success = await deleteAlbum(id);
+        const success = await deleteAlbum(albumId);
         if (success) {
             navigate('/');
         }
