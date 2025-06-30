@@ -23,7 +23,7 @@ const AlbumCard = ({ id, name, artist, imageUrl }) => {
                 alt={`${name} album cover`}
                 style={{
                     width: "100%",
-                    aspectRatio: "1 / 1",         // vierkant
+                    aspectRatio: "1 / 1",     
                     objectFit: "cover",
                     borderTopLeftRadius: 8,
                     borderTopRightRadius: 8
