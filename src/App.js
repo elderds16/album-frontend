@@ -2,11 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Container } from "@material-ui/core";
 import AlbumOverview from "./components/AlbumOverview";
-
-// ...
-
-<Route path="/" element={<AlbumOverview />} />
-
+import AlbumDetail from "./components/AlbumDetail";  // importeer AlbumDetail
 
 function App() {
     return (
@@ -22,9 +18,9 @@ function App() {
             </AppBar>
 
             <Container style={{ marginTop: "2rem" }}>
-                {/* Routes komen hier straks */}
                 <Routes>
                     <Route path="/" element={<AlbumOverview />} />
+                    <Route path="/album/:albumId" element={<AlbumDetail />} />  {/* nieuwe route */}
                 </Routes>
             </Container>
         </BrowserRouter>
