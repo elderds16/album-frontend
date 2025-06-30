@@ -4,6 +4,7 @@ import AlbumForm from './AlbumForm';
 import useCreateAlbum from '../hooks/useCreateAlbum';
 import useAlbums from '../hooks/useAlbums';
 import { Button } from '@material-ui/core';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const CreateAlbum = () => {
     const navigate = useNavigate();
@@ -40,6 +41,7 @@ const CreateAlbum = () => {
                 component={Link}
                 to="/"
                 variant="outlined"
+                startIcon={<ArrowBackIcon />}
                 style={{ marginBottom: '1rem' }}
             >
                 Ga terug naar overzicht
