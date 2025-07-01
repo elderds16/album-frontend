@@ -8,6 +8,26 @@ const useUpdateAlbum = () => {
         setIsLoading(true);
         setError(null);
         try {
+            // Albums ophalen om duplicaat te checken op naam + artiest
+            const albumsResponse = await fetch(`${process.env.REACT_APP_API_URL}/album`);
+            if (!albumsResponse.ok) {
+                throw new Error('Failed to fetch albums for duplicate check');
+            }
+            const albums = await albumsResponse.json();
+
+            // Check of er een album bestaat met dezelfde naam en artiest (exclusief huidige album id niet meer checken)
+            const duplicate = albums.some(
+                (a) =>
+                    a.name.toLowerCase().trim() === updatedAlbum.name.toLowerCase().trim() &&
+                    a.artist.toLowerCase().trim() === updatedAlbum.artist.toLowerCase().trim()
+            );
+
+            if (duplicate) {
+                setError('An album with this name and artist already exists.');
+                return false;
+            }
+
+            // Update uitvoeren als geen duplicaat
             const response = await fetch(`${process.env.REACT_APP_API_URL}/album/${id}`, {
                 method: 'PUT',
                 headers: {
@@ -28,7 +48,8 @@ const useUpdateAlbum = () => {
                     errorMessage = errorText || errorMessage;
                 }
 
-                throw new Error(errorMessage);
+                setError(errorMessage);
+                return false;
             }
 
             return true;
