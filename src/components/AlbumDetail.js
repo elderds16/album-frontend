@@ -40,10 +40,11 @@ const AlbumDetail = () => {
                 component={Link}
                 to="/"
                 variant="outlined"
+                color="primary"
                 startIcon={<ArrowBackIcon />}
                 style={{ marginBottom: '10px' }}
             >
-                Back to Album Overview
+                Back to overview
             </Button>
 
             <Typography
@@ -54,7 +55,7 @@ const AlbumDetail = () => {
                     fontWeight: 'bold',
                 }}
             >
-                Album Overview: {album ? album.name : ''}
+                {album && album.name ? `Album Overview: ${album.name}` : 'Album Overview'}
             </Typography>
 
             {album && (
